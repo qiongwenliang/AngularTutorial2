@@ -1,0 +1,63 @@
+<h4>Here is the practices of attribute and property binding.</h4>
+
+<br/>
+
+<input type="text" id="fname" value="John"/>
+
+<!--the value here works as an attribute, and here the value is bind with "John", and this value can't be changed in runtime. 
+
+if change it to [value], then it will be working as a property
+
+so in localhost:4200, get to inspect, console and type Javascript:
+document.getElementById("fname").getAttribute("value") -> this will return John, it is the attribute
+
+when type Betty in the input text and run:
+document.getElementById("fname").value -> it will return Betty, and this is property
+in this case when running the previous command:
+document.getElementById("fname").getAttribute("value") -> you still get John
+
+value here is acting as an attribute, and it won't change the value, attribute remains the same always
+but if you want to assign the value at run time, it is property, because attribute can't change but property can be changed
+And this is the reason why angular needs to work with property binding
+-->
+
+
+<input type="text" id="test" [value]="value"/>
+<!--this [value] is property binding, because I initiate this property in app.component.ts
+
+here is when you can change the property value at run time
+
+here if you try to get the attribute, it will return null because there is no attribute here, there's only property here
+-->
+
+<hr/>
+
+<h4>Below will be the example of showing parent and child components</h4>
+
+<br/>
+
+<div>
+  <h2>Parent Component</h2>
+
+  <input type="text" [(ngModel)]="firstName"/>
+  <input type="text" [(ngModel)]="lastName"/>
+  <br/>
+
+  <!--3. here is where you want to declare that you are receiving the value pass from parent to child component, the fn and ln
+  then go to child component.html to modify for accepting the values
+  -->
+
+  <!--8. to create how we display the custom event, the emitFullName, and create a function to display this name, pass the event object by using dollar sign,
+  now go to parent component.ts
+  -->
+  
+  <br/>Employee Full Name = {{employeeFullName}}<br/>
+  <br/>
+
+  <app-child [fn]="firstName" [ln]="lastName" (emitFullName)="printFullName($event)" ></app-child>
+  <!--the pringFullName here is the event handler of parent component-->
+  <br/>
+
+</div>
+
+<router-outlet></router-outlet>

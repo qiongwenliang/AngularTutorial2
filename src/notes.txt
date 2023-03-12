@@ -1,0 +1,25 @@
+Parent Component 
+    - Child component 
+eg. A dashboard, and it contains navbar, side bar, and footer. 
+    - parent component: dashboard
+    - child component: navbar, side bar, footer
+
+
+
+(!!!very important interview question) Communication between components:  -> input and output properties
+
+1. Send data from parent to child, when two components are relative to each other, we need to use:
+    -- to send data from parent to child we need to use input property/decorator(must use input decorator)
+
+2. Send data from child to parent
+    -- we need to use output decorator/event
+        --- if child is emiiting an event then the parent component must have an event handler
+
+
+
+Assignment: 
+List of employees -> three buttons
+    - first button: Male(4) -> and show male employees in child component
+    - second button: Female(7) -> and show female employees in child component
+    - third button: all(11) -> show all employees in child component
+
